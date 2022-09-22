@@ -15,7 +15,7 @@ function npm_scripts_autocomplete;
   
   if [ $package_manager ]
     set -l cmd_prefix $(if test $package_manager = "npm"; echo "npm run"; else; echo $package_manager; end)
-    set -l user_scripts_keys $(jq -r '.scripts | keys[]' package.json)
+    set -l user_scripts_keys $(jq -r '.scripts | keys_unsorted[]' package.json)
     begin 
       printf $cmd_prefix' %s\n' $user_scripts_keys
       echo "$package_manager install"

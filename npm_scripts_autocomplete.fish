@@ -17,7 +17,7 @@ function npm_scripts_autocomplete
     set -l user_defined_scripts $(echo $scripts | jq -r 'to_entries | .[] | (.key + "\t|\t" + "\"" + .value + "\"")')
     begin 
       printf $cmd_prefix' %s\n' $user_defined_scripts | column -t -s "$(printf '\t')"
-    end | fzf -e --info=hidden --prompt "\$ " --height=80% --layout=reverse --border --margin=1 --padding=1 | awk 'BEGIN {FS="|"}; {print $1}'| awk '{$1=$1};1' | read script
+    end | fzf -e --info=hidden --prompt "\$ " --height=80% --layout=reverse | awk 'BEGIN {FS="|"}; {print $1}'| awk '{$1=$1};1' | read script
   end
   if [ $script ]
     commandline -r $script

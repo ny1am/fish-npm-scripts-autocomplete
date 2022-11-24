@@ -20,7 +20,7 @@ This function heavily depends on two beautiful tools: `jq` and `fzf`. Please ins
 1. Download script to fish functions directory:
 
 ```shell
-curl https://raw.githubusercontent.com/ny1am/fish-npm-scripts-autocomplete/main/npm_scripts_autocomplete.fish -o $HOME/.config/fish/functions/npm_scripts_autocomplete.fish
+curl --output-dir "$HOME/.config/fish/functions" -O https://raw.githubusercontent.com/ny1am/fish-npm-scripts-autocomplete/main/npm_scripts_autocomplete.fish
 ```
 
 2. Optionally add hotkey binding to your fish config:
@@ -31,9 +31,11 @@ function fish_user_key_bindings
   ...
 
   # add the line below to bind a hotkey
-  bind \cn npm_scripts_autocomplete # Ctrl+N
+  bind \cf npm_scripts_autocomplete # Ctrl+F
 end
 ```
+
+You can use [fish_key_reader](https://fishshell.com/docs/current/cmds/fish_key_reader.html) command to experiment with key bindings :)
 
 ## License
 

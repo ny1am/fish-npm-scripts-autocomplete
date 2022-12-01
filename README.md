@@ -2,7 +2,7 @@
 
 [Fish shell](https://fishshell.com) function that parses `package.json` to get user defined scripts and pipes them though [fzf](https://github.com/junegunn/fzf).
 
-It also detects whether you use `yarn` or `npm`.
+It also detects whether you use `yarn`, `pnpm`, or `npm`.
 
 ![](demo.gif)
 

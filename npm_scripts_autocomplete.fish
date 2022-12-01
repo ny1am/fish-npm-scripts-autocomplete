@@ -1,6 +1,8 @@
 function _check_node_package_manager
   if test -e ./yarn.lock
     echo "yarn"
+  else if test -e ./pnpm-lock.yaml
+    echo "pnpm"
   else if test -e ./package.json
     echo "npm"
   else

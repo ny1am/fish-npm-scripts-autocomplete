@@ -15,7 +15,7 @@ function npm_scripts_autocomplete
   set -l package_manager $(_check_node_package_manager)
   if [ $package_manager ]
     set -l scripts $(jq '.scripts' package.json)
-    set -l cmd_prefix $(if test $package_manager = "npm"; echo "npm run"; else; echo $package_manager; end)
+    set -l cmd_prefix $(echo "$package_manager run")
     set -l user_defined_scripts $(echo $scripts | jq -r 'to_entries | .[] | (.key + "\t|\t" + "\"" + .value + "\"")')
     begin 
       printf $cmd_prefix' %s\n' $user_defined_scripts | column -t -s "$(printf '\t')"
